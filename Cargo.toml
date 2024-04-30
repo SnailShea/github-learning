@@ -1,8 +1,14 @@
 [package]
 name = "github-learning"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
+description = "A project to learn github actions and more"
+keywords = ["this", "is", "a", "sample", "project"]
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[profile.release]
+strip = "debuginfo"
