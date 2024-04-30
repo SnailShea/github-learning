@@ -1,0 +1,23 @@
+name: Rust
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build release assets
+        run: cargo build --verbose --profile release
+      - name: Create github release and attach assets
+        uses: softprop/action-gh-release
+        with:
+          files: target/release/*.exe
