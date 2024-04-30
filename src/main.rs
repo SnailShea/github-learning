@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", hello());
+    println!("Super cool project.\n\n{}", hello());
 }
 
 fn hello() -> String {
