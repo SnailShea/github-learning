@@ -1,8 +1,5 @@
 name: Rust
 
-permissions:
-  contents: write
-
 on:
   push:
     tags:
