@@ -1,7 +1,7 @@
 fn main() {
-    hello();
+    println!("{}", hello());
 }
 
-fn hello() {
-    println!("Hello, world!");
+fn hello() -> String {
+    "Hello, world!".to_string()
 }
