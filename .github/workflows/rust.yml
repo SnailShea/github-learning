@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build release assets
-        run: cargo build --verbose --profile release
+        run: |
+          cargo build --verbose --profile release
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
         with:
