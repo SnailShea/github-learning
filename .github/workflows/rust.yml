@@ -21,20 +21,20 @@ jobs:
       - name: Add windows target
         run: rustup target add x86_64-pc-windows-gnu
       - name: Create release directories
-        run: mkdir -p ./target/release/{linux,windows}
+        run: mkdir -p ./target/{linux,windows}
       - name: Build for GNU/Linux
-        run: cargo build --verbose --profile release --target-dir ./target/release/linux
+        run: cargo build --verbose --profile release --target-dir ./target/linux
       - name: Build for Windows
-        run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu --target-dir ./target/release/windows
+        run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu --target-dir ./target/windows
       - name: WHAT'S IN THE BOX?!
-        run: ls -alh ./target/release/windows/x86_64-pc-windows-gnu/release
-      - name: Rename Windows binary
-        run: mv ./target/release/windows/x86_64-pc-windows-gnu/github-learning ./target/release/windows/x86_64-pc-windows-gnu/github-learning.exe
+        run: ls -alh ./target/windows/release
+      #- name: Rename Windows binary
+      #  run: mv ./target/windows/github-learning ./target/windows/github-learning.exe
       - name: List artifacts
         run: ls -alh ./target/release/
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            target/release/linux/github-learning
-            target/release/windows/github-learning.exe
+            target/linux/release/github-learning
+            target/windows/release/github-learning.exe
