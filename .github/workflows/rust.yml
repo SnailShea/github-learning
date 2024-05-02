@@ -9,22 +9,22 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  build_linux:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        target: [x86_64-pc-windows-gnu, x86_64-unknown-linux-musl]
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
-      - name: Build source
+      - name: Add windows target
+        run: rustup target add x86_64-pc-windows-gnu
+      - name: Build for GNU/Linux
         run: cargo build --verbose --profile release
+      - name: Build for Windows
+        run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu
       - name: List artifacts
         run: ls -alh ./target/release/
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            target/release/github_learning
-            target/release/github_learning.exe
+            target/release/github-learning
+            target/release/github-learning.exe
