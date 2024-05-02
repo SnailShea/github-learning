@@ -26,6 +26,8 @@ jobs:
         run: cargo build --verbose --profile release --target-dir ./target/release/linux
       - name: Build for Windows
         run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu --target-dir ./target/release/windows
+      - name: WHAT'S IN THE BOX?!
+        run: ls -alh ./target/release/windows/x86_64-pc-windows-gnu
       - name: Rename Windows binary
         run: mv ./target/release/windows/x86_64-pc-windows-gnu/github-learning ./target/release/windows/x86_64-pc-windows-gnu/github-learning.exe
       - name: List artifacts
