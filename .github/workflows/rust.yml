@@ -12,6 +12,10 @@ jobs:
   build_linux:
     runs-on: ubuntu-latest
     steps:
+      - name: Update packages
+        run: apt update -y
+      - name: Install cross-compile linker
+        run: apt install -y gcc-mingw-w64
       - name: Checkout source
         uses: actions/checkout@v3
       - name: Add windows target
