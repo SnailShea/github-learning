@@ -27,7 +27,7 @@ jobs:
       - name: Build for Windows
         run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu --target-dir ./target/release/windows
       - name: Rename Windows binary
-        run: mv ./target/release/windows/github-learning ./target/release/windows/github-learning.exe
+        run: mv ./target/release/windows/github-learning ./target/release/windows/x86_64-pc-windows-gnu/github-learning.exe
       - name: List artifacts
         run: ls -alh ./target/release/
       - name: Create github release and attach assets
