@@ -30,6 +30,8 @@ jobs:
         run: |
           ls -alh ./target/windows/
           ls -alh ./target/windows/release/
+          ls -alh ./target/windows/release/build
+          ls -alh ./target/windows/x86_64-pc-windows-gnu
       #- name: Rename Windows binary
       #  run: mv ./target/windows/github-learning ./target/windows/github-learning.exe
       - name: List artifacts
