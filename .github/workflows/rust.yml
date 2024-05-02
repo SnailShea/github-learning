@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Build release assets
         run: |
-          ls -al
+          ls -al ..
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
         with:
