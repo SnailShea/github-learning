@@ -27,11 +27,15 @@ jobs:
       - name: Build for Windows
         run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu --target-dir ./target/windows
       - name: WHAT'S IN THE BOX?!
-        run: ls -alh ./target/windows/release
+        run: |
+          ls -alh ./target/windows/
+          ls -alh ./target/windows/release/
       #- name: Rename Windows binary
       #  run: mv ./target/windows/github-learning ./target/windows/github-learning.exe
       - name: List artifacts
-        run: ls -alh ./target/release/
+        run: |
+          ls -alh /target/linux/
+          ls -alh ./target/linux/release/
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
         with:
