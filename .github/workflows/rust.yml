@@ -20,7 +20,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Build source
         run: cargo build --verbose --profile release
+      - name: List artifacts
+        run: ls -alh ./target/release/
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
         with:
-          files: target/release/^github-learning{\.exe,}$
+          files: |
+            target/release/github_learning
+            target/release/github_learning.exe
