@@ -1,6 +1,6 @@
 [package]
 name = "github-learning"
-version = "0.2.4"
+version = "0.2.5"
 edition = "2021"
 description = "A project to learn github actions and more"
 keywords = ["this", "is", "a", "sample", "project"]
