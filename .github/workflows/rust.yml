@@ -32,11 +32,13 @@ jobs:
           ls -alh ./target/windows/release/
           ls -alh ./target/windows/release/build
           ls -alh ./target/windows/x86_64-pc-windows-gnu
+          ls -alh ./target/windows/x86_64-pc-windows-gnu/build
+          find . -name '*.exe'
       #- name: Rename Windows binary
       #  run: mv ./target/windows/github-learning ./target/windows/github-learning.exe
       - name: List artifacts
         run: |
-          ls -alh /target/linux/
+          ls -alh ./target/linux/
           ls -alh ./target/linux/release/
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
