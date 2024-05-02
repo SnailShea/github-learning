@@ -16,33 +16,19 @@ jobs:
         run: sudo apt update -y
       - name: Install cross-compile linker
         run: sudo apt install -y gcc-mingw-w64
-      - name: Checkout source
-        uses: actions/checkout@v3
       - name: Add windows target
         run: rustup target add x86_64-pc-windows-gnu
+      - name: Checkout source
+        uses: actions/checkout@v3
       - name: Create release directories
-        run: mkdir -p ./target/{linux,windows}
+        run: mkdir -p target/{linux,windows}
       - name: Build for GNU/Linux
-        run: cargo build --verbose --profile release --target-dir ./target/linux
+        run: cargo build --verbose --profile release --target-dir target/linux
       - name: Build for Windows
-        run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu --target-dir ./target/windows
-      - name: WHAT'S IN THE BOX?!
-        run: |
-          ls -alh ./target/windows/
-          ls -alh ./target/windows/release/
-          ls -alh ./target/windows/release/build
-          ls -alh ./target/windows/x86_64-pc-windows-gnu
-          ls -alh ./target/windows/x86_64-pc-windows-gnu/release
-          find . -name '*.exe'
-      #- name: Rename Windows binary
-      #  run: mv ./target/windows/github-learning ./target/windows/github-learning.exe
-      - name: List artifacts
-        run: |
-          ls -alh ./target/linux/
-          ls -alh ./target/linux/release/
+        run: cargo build --verbose --profile release --target x86_64-pc-windows-gnu --target-dir target/windows
       - name: Create github release and attach assets
         uses: softprops/action-gh-release@v2
         with:
           files: |
             target/linux/release/github-learning
-            target/windows/release/github-learning.exe
+            target/windows/x86_64-pc-windows-gnu/release/github-learning.exe
