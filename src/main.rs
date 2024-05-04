@@ -1,7 +1,12 @@
+use tracing::info;
+use tracing_subscriber::fmt::init;
+
 fn main() {
-    println!("Super cool project.\n\n{}", hello());
+    init();
+    let hello = hello();
+    info!("{hello}");
 }
 
-fn hello() -> String {
-    "Hello, world!".to_string()
+fn hello() -> &'static str {
+    "Hello, world!"
 }
