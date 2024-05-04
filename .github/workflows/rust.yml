@@ -19,7 +19,7 @@ jobs:
       - name: Add windows target
         run: rustup target add x86_64-pc-windows-gnu
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Create release directories
         run: mkdir -p target/{linux,windows}
       - name: Build for GNU/Linux
